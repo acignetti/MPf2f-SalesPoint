@@ -3,9 +3,9 @@ function showPieChart() {
 	$('div#content').load('stats.html', function() {
     $('button#transactions').prop("disabled",false);
     $('button#stats').attr("disabled", true);
-    $('#stats').show();
+    $('div#stats').show();
 		generatePieChart();
-	})
+	});  
 }
 
 function generatePieChart() {

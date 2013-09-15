@@ -9,7 +9,7 @@ $(function() {
 	/**
 	 * Valido que las cookies existan, sino redirijo al index.
  	*/
-	if(!userData.valid) {
+	if(userData.invalid) {
 		document.location.href='../';
 	} else {
 		$('#loggedUser').html(userData.name);
@@ -27,11 +27,15 @@ $(function() {
 	});
 
 	$('button#transactions').click(function(){
-		showTransactions(user, key);
+		showTransactions();
+	});
+
+	$('a#menubarSessionClose').click(function(){
+		sessionClose();
 	});
 
 	/**
 	 * Pantalla inicial.
 	 */
-	showTransactions(user, key);
+	showTransactions();
 });

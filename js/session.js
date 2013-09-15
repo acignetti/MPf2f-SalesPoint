@@ -9,10 +9,10 @@ function sessionGetUserData() {
 	userData.user	= readCookie('userID');
 	userData.key	= readCookie('sessionKey');
 	userData.name	= readCookie('name');
-	userData.valid = (user == null || key == null);
+	userData.invalid = (userData.user == null || userData.key == null);
 
 	return userData;
-});
+};
 
 
 /**
@@ -21,24 +21,27 @@ function sessionGetUserData() {
  * @return {VOID}
  */
 function sessionClose() {
-	var user	= readCookie('userID');
-	var key		= readCookie('sessionKey');
+	userData = sessionGetUserData();
+	if (userData.valid) {
 		
-	$.ajax({
-		dataType: "jsonp",
-		url: "http://10.52.213.157/mp-ws/operaciones.php",
-		data: {
-			operacion: 'user_logout',
-			username: user,
-			session_key: key
-			
-		},
-		success: function(dataStr) {
-			data = JSON.parse(dataStr);
-			document.location.href='../';
-		},
-		error: function() {
-			document.location.href='../';
-		}
-	});
+		$.ajax({
+			dataType: "jsonp",
+			url: "http://10.52.213.157/mp-ws/operaciones.php",
+			data: {
+				operacion: 'user_logout',
+				username: userData.user,
+				session_key: userData.key
+				
+			},
+			success: function(dataStr) {
+				data = JSON.parse(dataStr);
+				document.location.href='../';
+			},
+			error: function() {
+				document.location.href='../';
+			}
+		});
+	} else {
+		document.location.href='../';
+	}
 }
