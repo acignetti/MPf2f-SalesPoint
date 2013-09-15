@@ -96,6 +96,7 @@ function showRegisterUser() {
 					data = JSON.parse(dataStr);
 					if (data.status == true) {
 						$('#processing').hide();
+						$('#infoMP').html('http://10.52.213.157/mp-ws/operaciones.php?operacion=mp_ipn&user_id=' + data.user.user_id);
 						$('#finishRegistration').show();
 					} else {
 						$('div#modal').click();

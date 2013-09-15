@@ -31,7 +31,9 @@ $(function() {
 		showPieChart();
 	});
 
-	createPaymentsTable(user, key, 'pending', 'infoPending');
-	createPaymentsTable(user, key, 'credited', 'infoCredited');
-	createPaymentsTable(user, key, 'cancelled', 'infoCancelled');
+	$('button#transactions').click(function(){
+		showTransactions(user, key);
+	});
+
+	showTransactions(user, key);
 });
