@@ -5,17 +5,16 @@
 
 $(function() {
 	var user = readCookie('userID');
-	var pass = readCookie('sessionKey');
+	var key = readCookie('sessionKey');
 
-	user = user.toUpperCase();
 	/**
 	 * Validación re pelotuda que impide que cualquier usuario
 	 * distinto a test y con password testest ingrese a la sección
  	*/
-	if(false) {
-		//document.location.href='../';
-		
+	if(user == null || key == null) {
+		document.location.href='../';
 	} else {
+		user = user.toUpperCase();
 		$('#loggedUser').html(user);
 	}
 	/**
@@ -26,8 +25,10 @@ $(function() {
 		showGenerateQR();
 	});
 	//Este es para el button que está comentado
-	/*
+	
 	$('button#qr').click(function() {
 		showGenerateQR();
-	}); */
+	}); 
+
+	createPaymentsTable(user, key, 'pending');
 });

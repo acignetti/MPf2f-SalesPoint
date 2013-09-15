@@ -34,9 +34,7 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="loggedUser">User<b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><a data-toggle="modal" href="#modal" id="qr">Generar QR</a></li>
-              <li><a href="#">Generar RFC</a></li>
-              <li><a href="#">Ver Estadísticas</a></li>
+              
               <!-- Esto debería enviar la operacion "Salir" -->
               <li><a href="../">Salir</a></li>
             </ul>
@@ -46,14 +44,25 @@
     </div>
     <!-- Fin del menú superior -->
     <!-- Contenedor principal, acá están las acciones -->
-    <!-- Temporalmente comentado hasta decidir cómo usarlo
-    <div class="container text-center">
-      <button type="button" class="btn btn-primary" data-toggle="modal" href="#modal" id="qr">Generar un QR</button>
-      <button type="button" class="btn btn-primary">Generar un NFC</button>
-      <! Esto se muestra sólo si es premium (Preguntar) -->
-      <!-- <button type="button" class="btn btn-primary">Ver estadísticas</button>
+    <div class="container">
+      <div class="text-center">
+        <button type="button" class="btn btn-primary" data-toggle="modal" href="#modal" id="qr">Generar un QR</button>
+        <button type="button" class="btn btn-primary">Generar un NFC</button>
+        <!-- Esto se muestra sólo si es premium (Preguntar) -->
+        <button type="button" class="btn btn-primary">Ver estadísticas</button>
+      </div>
+      <hr/>
+      <div class="well" id="infoPending" >
+        <!-- Acá se carga la información de los pagos pendientes -->
+      </div>
+      <div class="well" id="infoCredited" style="display:none">
+        <!-- Acá se carga la información de los pagos pendientes -->
+      </div>
+      <div class="well" id="infoCancelled" style="display:none">
+        <!-- Acá se carga la información de los pagos pendientes -->
+      </div>      
     </div>
-    <! Fin del contenedor principal -->
+    <!-- Fin del contenedor principal -->
     <!-- Contenedor de los mensajes popup -->
     <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">

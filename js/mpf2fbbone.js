@@ -17,6 +17,7 @@ function showGenerateQR() {
 	})
 }
 
+
 /**
  * Genera un QR para ser mostrado en el campo correspondiente para
  * ser escaneado luego por un smartphone
@@ -86,4 +87,108 @@ function generateSale() {
 			$('div#errorgrave').fadeIn(1500);
 		}
 	});
+}
+
+/**
+ * Función que se encarga de crear una tabla para ser mostrada en la
+ * página principal. La tabla contiene el tipo de operación que 
+ * @param  {varchar} type El tipo de pagos a buscar
+ * @return {VOID}
+ */
+function createPaymentsTable(user, key, type) {
+	$.ajax({
+		dataType: "jsonp",
+		url: "http://10.52.213.157/mp-ws/operaciones.php",
+		data: {
+			operacion: 'sales_list',
+			status: type,
+			start: 0,
+			limit: 20,
+			username: user,
+			session_key: key
+		},
+		success: function(dataStr) {
+			data = JSON.parse(dataStr);
+			if (data.status == true) {
+				tableCreate(data.sales);
+			} else {
+				$('div#errorsale').fadeIn(1500);
+			}
+		},
+		error: function() {
+			$('div#errorgrave').fadeIn(1500);
+		}
+	});
+}
+
+function tableCreate(data){
+	var body = $('#infoPending');
+	var tbl = document.createElement('table');
+	tbl.setAttribute('class','table table-hover');
+	// Esto se hace una vez, es la cabecera de la tabla
+	var thead = document.createElement('thead');
+	var tr = document.createElement('tr');
+
+	var th = document.createElement('th');
+	th.appendChild(document.createTextNode('#'));
+	tr.appendChild(th);
+	var th = document.createElement('th');
+	th.appendChild(document.createTextNode('Descripción'));
+	tr.appendChild(th);
+	var th = document.createElement('th');
+	th.appendChild(document.createTextNode('Monto'));
+	tr.appendChild(th);
+	var th = document.createElement('th');
+	th.appendChild(document.createTextNode('Fecha'));
+	tr.appendChild(th);
+	var th = document.createElement('th');
+	th.appendChild(document.createTextNode('Ver QR'));
+
+	tr.appendChild(th);
+	thead.appendChild(tr);
+	tbl.appendChild(thead);
+
+	var tbdy = document.createElement('tbody');
+	for (var i = 0; i < data.length; i++) {
+		data[i]
+		var tr = document.createElement('tr');
+		
+		var td = document.createElement('td');
+		td.appendChild(document.createTextNode(i + 1));
+		tr.appendChild(td);
+		var td = document.createElement('td');
+		td.appendChild(document.createTextNode(data[i].name));
+		tr.appendChild(td);
+		var td = document.createElement('td');
+		td.appendChild(document.createTextNode(data[i].ammount));
+		tr.appendChild(td);
+		var td = document.createElement('td');
+		td.appendChild(document.createTextNode(data[i].date));
+		tr.appendChild(td);
+		var td = document.createElement('td');
+		var tmp = createButton(data[i].sale_id);
+		td.appendChild(tmp);
+		tr.appendChild(td);
+		 
+		tbdy.appendChild(tr);
+	};	
+	tbl.appendChild(tbdy);
+	body.append(tbl);
+}
+
+function createButton(id) {
+	var elem =document.createElement('a');
+	elem.setAttribute('href', "#modal");
+	elem.setAttribute('class', "btn btn-default");
+	elem.setAttribute('onClick', "showPreviousQR('"+id+"')");
+	
+	elem.appendChild(document.createTextNode("Generar QR"));
+	return elem;
+}
+
+function showPreviousQR(id) {
+	$('div#modal').toggle();
+	$('#qrGenerator').hide();
+	$('#processing').show();	
+	generateQR(id);
 }
