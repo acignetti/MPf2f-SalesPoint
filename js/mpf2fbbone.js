@@ -177,18 +177,24 @@ function tableCreate(data){
 }
 
 function createButton(id) {
-	var elem =document.createElement('a');
+	var elem =document.createElement('button');
 	elem.setAttribute('href', "#modal");
+	elem.setAttribute('type', "button");
 	elem.setAttribute('class', "btn btn-default");
-	elem.setAttribute('onClick', "showPreviousQR('"+id+"')");
+	elem.setAttribute('data-toggle', "modal");
+	elem.setAttribute('id', "btnQR"+id);
+	elem.setAttribute('onclick', "showPreviousQR('"+id+"')");
 	
 	elem.appendChild(document.createTextNode("Generar QR"));
 	return elem;
 }
 
 function showPreviousQR(id) {
-	$('div#modal').toggle();
-	$('#qrGenerator').hide();
-	$('#processing').show();	
-	generateQR(id);
+	$('div#actions').load('generateqr.html', function() {
+		
+		$('#qrGenerator').hide();
+		$('#processing').show();
+	})
+		
+	//generateQR(id);
 }

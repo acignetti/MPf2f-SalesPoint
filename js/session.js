@@ -17,13 +17,7 @@ $(function() {
 		user = user.toUpperCase();
 		$('#loggedUser').html(user);
 	}
-	/**
-	 * Después de la validación controlamos el uso de las funciones
-	 * que llama el usuario
-	 */
-	$('#qr').click(function() {
-		showGenerateQR();
-	});
+	
 	//Este es para el button que está comentado
 	
 	$('button#qr').click(function() {
