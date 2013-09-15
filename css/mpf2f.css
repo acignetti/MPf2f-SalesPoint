@@ -1,0 +1,10 @@
+/**
+ * Esta es la hoja de estilo del sitio general, se renderiza después
+ * de la carga de bootstrap
+ */
+
+.menu {
+	position: fixed;
+	width: 100%;
+	border-radius: 0;
+}

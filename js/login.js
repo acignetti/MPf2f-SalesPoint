@@ -27,20 +27,22 @@ $(function() {
 			$("input#pass").focus();
 			return false;
 		}
-
 		
-		var dataString = 'operacion=user_login' + '&username='+ user + '&password=' + pass;
 		$.ajax({
 			dataType: "jsonp",
 			url: "http://10.52.213.157/mp-ws/operaciones.php",
-			data: dataString,
+			data: {
+				operacion: 'user_login',
+				username: user,
+				password: pass
+			},
 			success: function(dataStr) {
 				data = JSON.parse(dataStr);
 				if (data.status == true) {
 					$('div#success').fadeIn(1500);
 					$('loginform').hide();
 					createCookie('userID', data.session.user, 1);
-					createCookie('userSession', data.session.session_key, 1);
+					createCookie('sessionKey', data.session.session_key, 1);
 					document.location.href='user/';
 				} else {
 					$('div#errorlogin').fadeIn(1500);
@@ -50,8 +52,6 @@ $(function() {
 				$('div#errorgrave').fadeIn(1500);
 			}
 		});
-		
-		
 		return false;
 	});
 });

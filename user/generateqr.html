@@ -7,11 +7,11 @@
 			</div>
 			<div class="modal-body">
 				<label for="description" class="control-label">Descripción</label>
-				<input type="text" class="form-control" id="description" placeholder="" required/>
+				<input type="text" class="form-control" id="description" placeholder="Desripción de la transacción"/>
 				<label for="price" class="control-label">Monto</label>
 				<div class="input-group">
 					<span class="input-group-addon">$</span>
-					<input type="text" class="form-control" id="price" required/>
+					<input type="text" class="form-control" id="price" placeholder="Monto total de la transacción"/>
 				</div>
 			</div>
 			<div class="modal-footer">
@@ -27,12 +27,25 @@
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 			<h4 class="modal-title">Sección QR</h4>
 		</div>
-		<div class="modal-body" id="responseQR">
+		<div class="modal-body text-center">
+			<h3 class="text-info"><img src="../img/loading.gif"/>&nbsp;&nbsp;Procesando...</h3>
+		</div>
+		<div class="modal-footer">
+		</div>
+	</div>	
+</div>
+<div id="finishQR" style="display:none">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<h4 class="modal-title">Sección QR</h4>
+		</div>
+		<div class="modal-body text-center" id="responseQR">
+			<h4>Pídale a su cliente que escanee el código para iniciar la transacción</h4>
 			<img id="imgQR" src=""/>
 		</div>
 		<div class="modal-footer">
 			<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-			<button type="button" class="btn btn-primary" id="goSale2">Generar QR</button>
 		</div>
 	</div>
 </div>

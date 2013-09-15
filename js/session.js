@@ -5,7 +5,7 @@
 
 $(function() {
 	var user = readCookie('userID');
-	var pass = readCookie('userSession');
+	var pass = readCookie('sessionKey');
 
 	user = user.toUpperCase();
 	/**
@@ -25,6 +25,9 @@ $(function() {
 	$('#qr').click(function() {
 		showGenerateQR();
 	});
-
-	
+	//Este es para el button que está comentado
+	/*
+	$('button#qr').click(function() {
+		showGenerateQR();
+	}); */
 });
