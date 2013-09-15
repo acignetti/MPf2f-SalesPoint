@@ -3,37 +3,42 @@
  * la base de datos y lo saca si falla
  */
 
-$(function() {
+function sessionGetUserData() {
+	userData = {};
+
+	userData.user	= readCookie('userID');
+	userData.key	= readCookie('sessionKey');
+	userData.name	= readCookie('name');
+	userData.valid = (user == null || key == null);
+
+	return userData;
+});
+
+
+/**
+ * Ejecuta la operacion de cerrar sesion en el WS, elimina las 
+ * cookies y vuelve al inicio.
+ * @return {VOID}
+ */
+function sessionClose() {
 	var user	= readCookie('userID');
 	var key		= readCookie('sessionKey');
-	var name	= readCookie('name');
-
-	/**
-	 * Validación re pelotuda que impide que cualquier usuario
-	 * distinto a test y con password testest ingrese a la sección
- 	*/
-	if(user == null || key == null) {
-		document.location.href='../';
-	} else {
-		name = name.toUpperCase();
-		$('#loggedUser').html(name);
-	}
-
-	/**
-	 * Después de la validación controlamos el uso de las funciones
-	 * que llama el usuario
-	 */
-	$('button#qr').click(function() {
-		showGenerateQR();
+		
+	$.ajax({
+		dataType: "jsonp",
+		url: "http://10.52.213.157/mp-ws/operaciones.php",
+		data: {
+			operacion: 'user_logout',
+			username: user,
+			session_key: key
+			
+		},
+		success: function(dataStr) {
+			data = JSON.parse(dataStr);
+			document.location.href='../';
+		},
+		error: function() {
+			document.location.href='../';
+		}
 	});
-
-	$('button#stats').click(function() {
-		showPieChart();
-	});
-
-	$('button#transactions').click(function(){
-		showTransactions(user, key);
-	});
-
-	showTransactions(user, key);
-});
+}
