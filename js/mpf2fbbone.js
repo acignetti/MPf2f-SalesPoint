@@ -4,6 +4,34 @@
  */
 
 /**
+ * Ejecuta la operacion de cerrar sesion en el WS, elimina las 
+ * cookies y vuelve al inicio.
+ * @return {VOID}
+ */
+function sessionClose() {
+	var user	= readCookie('userID');
+	var key		= readCookie('sessionKey');
+		
+	$.ajax({
+		dataType: "jsonp",
+		url: "http://10.52.213.157/mp-ws/operaciones.php",
+		data: {
+			operacion: 'user_logout',
+			username: user,
+			session_key: key
+			
+		},
+		success: function(dataStr) {
+			data = JSON.parse(dataStr);
+			document.location.href='../';
+		},
+		error: function() {
+			document.location.href='../';
+		}
+	});
+}
+
+/**
  * Carga la pantalla de generación de código QR además de la función
  * que se encarga luego de ejecutar el pedido de generación de venta
  * @return {VOID}
@@ -14,7 +42,7 @@ function showGenerateQR() {
 			generateSale();
 		});
 		$('div#actions').show();
-	})
+	});
 }
 
 /**
