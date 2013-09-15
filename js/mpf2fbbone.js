@@ -24,13 +24,15 @@ function showGenerateQR() {
  * @param {integer} saleID El id de la venta para generar el QR
  * @return {VOID}
  */
-function generateQR(saleID) {
+function generateQR(saleID, userID, sessionKey) {
 	$.ajax({
 		dataType: "jsonp",
 		url: "http://10.52.213.157/mp-ws/operaciones.php",
 		data: {
 			operacion: 'sales_qr',
-			id: saleID
+			id: saleID,
+			username: userID,
+			session_key: sessionKey
 		},
 		success: function(dataStr) {
 			data = JSON.parse(dataStr);
@@ -76,7 +78,7 @@ function generateSale() {
 		success: function(dataStr) {
 			data = JSON.parse(dataStr);
 			if (data.status == true) {
-				generateQR(data.item.sale_id);
+				generateQR(data.item.sale_id,user,sessionkey);
 			} else {
 				$('div#modal').click();
 				$('div#errorsale').fadeIn(1500);
@@ -95,7 +97,8 @@ function generateSale() {
  * @param  {varchar} type El tipo de pagos a buscar
  * @return {VOID}
  */
-function createPaymentsTable(user, key, type) {
+function createPaymentsTable(user, key, type, table) {
+	$('#'+table+'Processing').show();	
 	$.ajax({
 		dataType: "jsonp",
 		url: "http://10.52.213.157/mp-ws/operaciones.php",
@@ -110,9 +113,11 @@ function createPaymentsTable(user, key, type) {
 		success: function(dataStr) {
 			data = JSON.parse(dataStr);
 			if (data.status == true) {
-				tableCreate(data.sales);
+				tableCreate(data.sales,table);
+				$('#'+table+'Processing').hide();	
+				$('#'+table).fadeIn(1000);				
 			} else {
-				$('div#errorsale').fadeIn(1500);
+				$('#'+table+'Processing').fadeOut(1500);
 			}
 		},
 		error: function() {
@@ -121,8 +126,8 @@ function createPaymentsTable(user, key, type) {
 	});
 }
 
-function tableCreate(data){
-	var body = $('#infoPending');
+function tableCreate(data,table){
+	var body = $('#'+table);
 	var tbl = document.createElement('table');
 	tbl.setAttribute('class','table table-hover');
 	// Esto se hace una vez, es la cabecera de la tabla
@@ -176,25 +181,35 @@ function tableCreate(data){
 	body.append(tbl);
 }
 
+/**
+ * Genera un botón que llama a la funciónn showPreviousQR
+ * @param  {integer} id El identificador del QR
+ * @return {object}
+ */
 function createButton(id) {
-	var elem =document.createElement('button');
+	var elem = document.createElement('button');
 	elem.setAttribute('href', "#modal");
 	elem.setAttribute('type', "button");
 	elem.setAttribute('class', "btn btn-default");
 	elem.setAttribute('data-toggle', "modal");
 	elem.setAttribute('id', "btnQR"+id);
-	elem.setAttribute('onclick', "showPreviousQR('"+id+"')");
+	elem.setAttribute('onclick', "showPreviousQR('" + id + "')");
 	
 	elem.appendChild(document.createTextNode("Generar QR"));
 	return elem;
 }
 
+/**
+ * Función llamada por un botón para mostrar un QR anterior
+ * @param  {integer} id Identificador del QR
+ * @return {VOID}
+ */
 function showPreviousQR(id) {
+	var user = readCookie('userID');
+	var sessionkey = readCookie('sessionKey');
 	$('div#actions').load('generateqr.html', function() {
-		
 		$('#qrGenerator').hide();
 		$('#processing').show();
+		generateQR(id,user,sessionkey);
 	})
-		
-	//generateQR(id);
 }

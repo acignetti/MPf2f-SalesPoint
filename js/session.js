@@ -4,8 +4,9 @@
  */
 
 $(function() {
-	var user = readCookie('userID');
-	var key = readCookie('sessionKey');
+	var user	= readCookie('userID');
+	var key		= readCookie('sessionKey');
+	var name	= readCookie('name');
 
 	/**
 	 * Validación re pelotuda que impide que cualquier usuario
@@ -14,15 +15,19 @@ $(function() {
 	if(user == null || key == null) {
 		document.location.href='../';
 	} else {
-		user = user.toUpperCase();
-		$('#loggedUser').html(user);
+		name = name.toUpperCase();
+		$('#loggedUser').html(name);
 	}
-	
-	//Este es para el button que está comentado
-	
+
+	/**
+	 * Después de la validación controlamos el uso de las funciones
+	 * que llama el usuario
+	 */
 	$('button#qr').click(function() {
 		showGenerateQR();
-	}); 
+	});
 
-	createPaymentsTable(user, key, 'pending');
+	createPaymentsTable(user, key, 'pending', 'infoPending');
+	createPaymentsTable(user, key, 'credited', 'infoCredited');
+	createPaymentsTable(user, key, 'cancelled', 'infoCancelled');
 });

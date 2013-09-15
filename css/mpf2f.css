@@ -8,3 +8,20 @@
 	width: 100%;
 	border-radius: 0;
 }
+
+.jumbotron {
+	background: url("../img/pagina2.png");
+	height: 460px;
+}
+
+.table-hover > tbody > tr:hover > td {
+	background: #fff;
+}
+
+.titulo {
+	color: #fff !important;
+	text-shadow: 0 0 10px #000, 0 0 10px #000;
+	position: relative;
+	top: 180px;
+	right: 8%;
+}

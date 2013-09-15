@@ -43,6 +43,7 @@ $(function() {
 					$('loginform').hide();
 					createCookie('userID', data.session.user, 1);
 					createCookie('sessionKey', data.session.session_key, 1);
+					createCookie('name', data.session.name, 1);
 					document.location.href='user/';
 				} else {
 					$('div#errorlogin').fadeIn(1500);
