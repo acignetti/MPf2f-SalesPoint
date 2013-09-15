@@ -26,9 +26,12 @@
     </noscript>
     <!-- Este es el menú superior -->
     <div id="login">
-      <nav class="navbar navbar-default" role="navigation">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">MercadoPago { <span class="text-info">Face 2 Face</span> }</a>
+      <nav class="navbar navbar-default menu" role="navigation">
+        <div class="navbar-header title-header visible-xs">
+          <h1 class="text-info text-center">- Face 2 Face -</h1>
+        </div>        
+        <div class="navbar-header title-header visible-sm visible-md visible-lg">
+          <a class="navbar-brand" href="#"><img src="../img/mp.png" height="30"/> { <span class="text-info"><img src="../img/face.png" height="30"/></span> }</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
           <p class="navbar-text">Conectado como:</p>
@@ -37,7 +40,7 @@
             <ul class="dropdown-menu">
               
               <!-- Esto debería enviar la operacion "Salir" -->
-              <li><a href="#" id="menubarSessionClose">Salir</a></li>
+              <li><a href="#" onclick="sessionClose();">Salir</a></li>
             </ul>
           </li>
         </ul>
@@ -96,6 +99,5 @@
     <script src="../js/transactions.js"></script>
     <script src="../js/stats.js"></script>
     <script src="../js/main.js"></script>
-    
   </body>
 </html>

@@ -3,7 +3,11 @@
  * de la carga de bootstrap
  */
 
+/**
+ * Estilos generales del sitio
+ */
 .menu {
+	top: 0;
 	position: fixed;
 	width: 100%;
 	border-radius: 0;
@@ -38,4 +42,22 @@
 	bottom: 50px;
 	width: 85%;
 	margin: auto;
+}
+
+.cellphone {
+	display: none;
+}
+
+/**
+ * Estilos aplicados a los smartphones
+ */
+@media screen and (max-width: 767px) {
+	.menu {
+		position: relative;
+		text-align: center;
+	}
+
+	.title-header {
+		text-align: center;
+	}
 }
