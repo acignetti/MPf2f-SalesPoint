@@ -25,3 +25,10 @@
 	top: 180px;
 	right: 8%;
 }
+
+.affix-bottom {
+	position: fixed;
+	bottom: 50px;
+	width: 85%;
+	margin: auto;
+}

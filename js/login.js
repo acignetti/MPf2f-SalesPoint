@@ -55,4 +55,8 @@ $(function() {
 		});
 		return false;
 	});
+
+	$('button#register').click(function(){
+		showRegisterUser();
+	})
 });

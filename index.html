@@ -36,7 +36,8 @@
             <div class="form-group">
               <input type="password" class="form-control" placeholder="Contraseña" name="pass" id="pass">
             </div>
-            <button type="submit" class="btn btn-default login">Ingresar</button>
+            <button type="submit" class="btn btn-default login" id="login">Ingresar</button>
+            <button type="button" class="btn btn-default" data-toggle="modal" href="#modal" id="register">Registrarse</button>
           </form>
       </nav>
     </div>
@@ -60,6 +61,14 @@
       <p>Sabiendo eso, podemos asegurar que tu potencial cliente va a disponer de su dinero vaya a donde vaya</p>
     </div>
     <!-- Fin del contenedor principal -->
+    <!-- Contenedor de los mensajes popup -->
+    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div id="actions">
+        </div>
+      </div>
+    </div>
+    <!-- Fin del contenedor de los mensajes -->    
     <!-- Contenedor de todos los mensajes de error y éxito -->
     <div id="errors" class="container">
       <div class="alert alert-danger affix-bottom" id="user_error" style="display:none">
@@ -78,6 +87,10 @@
         <strong>¡Error!</strong> Usuario o contraseña inválida.
         <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
       </div>
+      <div class="alert alert-danger affix-bottom" id="errorregister" style="display:none">
+        <strong>¡Error!</strong> Existió algún inconveniente con los datos.
+        <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+      </div>
       <div class="alert alert-success affix-bottom" id="success" style="display:none">
         <strong>¡Éxito!</strong> El usuario ingresó correctamente.
         <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
@@ -89,5 +102,6 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/cookies.js"></script>
     <script src="js/login.js"></script>
+    <script src="js/mpf2fbbone.js"></script>
   </body>
 </html>
