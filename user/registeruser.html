@@ -1,0 +1,74 @@
+<div id="userRegistration">
+	<form id="registerME">
+	<div id="stepOne">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Nuevo Usuario</h4>
+				</div>
+				<div class="modal-body">
+					<label for="username" class="control-label">Nombre de Usuario</label>
+					<input type="text" class="form-control" id="username" placeholder="Usuario para nuestra aplicación"/>
+					<label for="completeName" class="control-label">Nombre Completo</label>
+					<input type="text" class="form-control" id="completeName" placeholder="Es el nombre que se mostrará en la aplicación"/>
+					<label for="password" class="control-label">Contraseña</label>
+					<input type="password" class="form-control" id="password" placeholder="Contraseña"/>
+					<label for="passwordRepeat" class="control-label">De nuevo</label>
+				<input type="password" class="form-control" id="passwordRepeat" placeholder="Repite la 	contraseña"/>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+					<button type="button" class="btn btn-primary" id="goFirstStep">Próximo paso</button>
+				</div>
+			</div>
+	</div>
+	<div id="stepTwo" style="display:none">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Nuevo Usuario</h4>
+			</div>
+			<div class="modal-body">
+				<h4>Para esta parte necesitamos que te conectes con MercadoPago</h4>
+				<p>Entra <a href="https://www.mercadopago.com/mla/herramientas/aplicaciones">aquí</a> y proporciona los siguientes datos</p>
+				<label for="client_id" class="control-label">Client ID</label>
+				<input type="text" class="form-control" id="client_id" placeholder="Es el campo Client_id"/>
+				<label for="client_secret" class="control-label">Client Secret</label>
+				<input type="text" class="form-control" id="client_secret" placeholder="Es el campo Client_secret"/>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+				<button type="button" class="btn btn-primary" id="goRegister">Registrarme</button>
+			</div>
+		</div>
+	</div>
+	</form>
+</div>
+<div id="processing" style="display:none">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<h4 class="modal-title">Nuevo Usuario</h4>
+		</div>
+		<div class="modal-body text-center">
+			<h3 class="text-info"><img src="img/loading.gif"/>&nbsp;&nbsp;Procesando...</h3>
+		</div>
+		<div class="modal-footer">
+		</div>
+	</div>	
+</div>
+<div id="finishRegistration" style="display:none">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<h4 class="modal-title">Nuevo Usuario</h4>
+		</div>
+		<div class="modal-body text-center" id="responseQR">
+			<h3>¡Bienvenido a nuestro sistema!</h3>
+			<h4>Ingresa con tu usuario para comenzar a vender inmediatamente</h4>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+		</div>
+	</div>
+</div>
