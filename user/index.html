@@ -37,7 +37,7 @@
             <ul class="dropdown-menu">
               
               <!-- Esto debería enviar la operacion "Salir" -->
-              <li><a href="#" onclick="sessionClose();">Salir</a></li>
+              <li><a href="#" id="menubarSessionClose">Salir</a></li>
             </ul>
           </li>
         </ul>
@@ -47,18 +47,18 @@
     <!-- Contenedor principal, acá están las acciones -->
     <div class="container">
       <div id="menubar">
-      <div class="text-center">
-        <!-- Esto se muestra sólo si es premium (Preguntar) -->
-        <button type="button" class="btn btn-primary" id="transactions" disabled>Ver transacciones</button>
-        <button type="button" class="btn btn-primary" id="stats">Ver estadísticas</button>
-        <button type="button" class="btn btn-primary" data-toggle="modal" href="#modal" id="qr">Generar un QR</button>
-        <button type="button" class="btn btn-primary">Generar un NFC</button>
+        <div class="text-center">
+          <!-- Esto se muestra sólo si es premium (Preguntar) -->
+          <button type="button" class="btn btn-primary" id="transactions" disabled>Ver transacciones</button>
+          <button type="button" class="btn btn-primary" id="stats">Ver estadísticas</button>
+          <button type="button" class="btn btn-primary" data-toggle="modal" href="#modal" id="qr">Generar un QR</button>
+          <button type="button" class="btn btn-primary">Generar un NFC</button>
+        </div>
       </div>
-    </div>
-    <hr/>    
-    <div id="content">
+      <hr/>    
+      <div id="content">
 
-    </div>
+      </div>
     </div>
     <!-- Fin del contenedor principal -->
     <!-- Contenedor de los mensajes popup -->
@@ -95,5 +95,7 @@
     <script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"></script>
     <script src="../js/transactions.js"></script>
     <script src="../js/stats.js"></script>
+    <script src="../js/main.js"></script>
+    
   </body>
 </html>
