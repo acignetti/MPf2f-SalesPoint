@@ -7,6 +7,7 @@
     <!-- Bootstrap -->
     <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="../css/mpf2f.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -45,12 +46,16 @@
     <!-- Fin del menú superior -->
     <!-- Contenedor principal, acá están las acciones -->
     <div class="container">
+      <div id="menubar">
       <div class="text-center">
         <button type="button" class="btn btn-primary" data-toggle="modal" href="#modal" id="qr">Generar un QR</button>
         <button type="button" class="btn btn-primary">Generar un NFC</button>
         <!-- Esto se muestra sólo si es premium (Preguntar) -->
-        <button type="button" class="btn btn-primary">Ver estadísticas</button>
+        <button type="button" class="btn btn-primary" id="stats">Ver estadísticas</button>
       </div>
+    </div>
+    <DIV id="content">
+
       <hr/>
       <div class="well" id="infoPendingProcessing" style="display:none">
         <h3 class="text-info"><img src="../img/loading.gif"/>&nbsp;&nbsp;Cargando transacciones pendientes...</h3>
@@ -75,6 +80,7 @@
         <!-- Acá se carga la información de los pagos pendientes -->
       </div>      
     </div>
+    </DIV>
     <!-- Fin del contenedor principal -->
     <!-- Contenedor de los mensajes popup -->
     <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -106,5 +112,8 @@
     <script src="../js/cookies.js"></script>
     <script src="../js/session.js"></script>    
     <script src="../js/mpf2fbbone.js"></script>    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"></script>
+    <script src="../js/stats.js"></script>
   </body>
 </html>

@@ -26,6 +26,12 @@
 	right: 8%;
 }
 
+.stats-content {
+	width: 700px;
+	margin: auto;
+	margin-top: 15px;
+	text-align: center;
+}
 .affix-bottom {
 	position: fixed;
 	bottom: 50px;

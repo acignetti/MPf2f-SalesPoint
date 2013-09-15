@@ -27,6 +27,10 @@ $(function() {
 		showGenerateQR();
 	});
 
+	$('button#stats').click(function() {
+		showPieChart();
+	});
+
 	createPaymentsTable(user, key, 'pending', 'infoPending');
 	createPaymentsTable(user, key, 'credited', 'infoCredited');
 	createPaymentsTable(user, key, 'cancelled', 'infoCancelled');
