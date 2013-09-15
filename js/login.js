@@ -39,11 +39,11 @@ $(function() {
 				if (data.status == true) {
 					$('div#success').fadeIn(1500);
 					$('loginform').hide();
-					createCookie('userID', data.user, 1);
-					createCookie('userSession', data.pass, 1);
+					createCookie('userID', data.session.user, 1);
+					createCookie('userSession', data.session.session_key, 1);
 					document.location.href='user/';
 				} else {
-					$('div#errorgrave').fadeIn(1500);
+					$('div#errorlogin').fadeIn(1500);
 				}
 			},
 			error: function(data) {

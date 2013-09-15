@@ -7,12 +7,24 @@ $(function() {
 	var user = readCookie('userID');
 	var pass = readCookie('userSession');
 
+	user = user.toUpperCase();
 	/**
 	 * Validación re pelotuda que impide que cualquier usuario
 	 * distinto a test y con password testest ingrese a la sección
-	
  	*/
-	if(user != 'test' || pass != 'testest') {
+	if(false) {
 		//document.location.href='../';
+		
+	} else {
+		$('#loggedUser').html(user);
 	}
+	/**
+	 * Después de la validación controlamos el uso de las funciones
+	 * que llama el usuario
+	 */
+	$('#qr').click(function() {
+		showGenerateQR();
+	});
+
+	
 });

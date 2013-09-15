@@ -1,0 +1,38 @@
+<div id="qrGenerator">
+	<form>
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Sección QR</h4>
+			</div>
+			<div class="modal-body">
+				<label for="description" class="control-label">Descripción</label>
+				<input type="text" class="form-control" id="description" placeholder="" required/>
+				<label for="price" class="control-label">Monto</label>
+				<div class="input-group">
+					<span class="input-group-addon">$</span>
+					<input type="text" class="form-control" id="price" required/>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+				<button type="button" class="btn btn-primary" id="goSale">Generar QR</button>
+			</div>
+		</div>
+	</form>
+</div>
+<div id="processing" style="display:none">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<h4 class="modal-title">Sección QR</h4>
+		</div>
+		<div class="modal-body" id="responseQR">
+			<img id="imgQR" src=""/>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+			<button type="button" class="btn btn-primary" id="goSale2">Generar QR</button>
+		</div>
+	</div>
+</div>

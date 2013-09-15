@@ -6,11 +6,12 @@
     <meta charset="utf-8">
     <!-- Bootstrap -->
     <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../css/mpf2f.css" rel="stylesheet" media="screen">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="../../assets/js/html5shiv.js"></script>
-      <script src="../../assets/js/respond.min.js"></script>
+      <script src="../js/html5shiv.js"></script>
+      <script src="../js/respond.min.js"></script>
     <![endif]-->
   </head>
   <body>
@@ -25,16 +26,15 @@
     <!-- Este es el menú superior -->
     <div id="login">
       <nav class="navbar navbar-default" role="navigation">
-        <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
           <a class="navbar-brand" href="#">MercadoPago { <span class="text-info">Face to Face</span> }</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
           <p class="navbar-text">Conectado como:</p>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuario <b class="caret"></b></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="loggedUser">User<b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><a href="#">Generar QR</a></li>
+              <li><a data-toggle="modal" href="#modal" id="qr">Generar QR</a></li>
               <li><a href="#">Generar RFC</a></li>
               <li><a href="#">Ver Estadísticas</a></li>
               <!-- Esto debería enviar la operacion "Salir" -->
@@ -47,16 +47,27 @@
     <!-- Fin del menú superior -->
     <!-- Contenedor principal, acá cargamos todo lo que el -->
     <!-- usuario nos solicite -->
-    <div class="container" id="actions">
-
+    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div id="actions">
+        </div>
+      </div>
     </div>
     <!-- Fin del contenedor principal -->
     <!-- Contenedor de todos los mensajes de error y éxito -->    
     <div id="errors">
       <div class="alert alert-danger affix-bottom" id="errorgrave" style="display:none">
-        <strong>¡Error !</strong> Error al enviar la operación, Axel trabajando
+        <strong>¡Error!</strong> Error al enviar la operación, Axel trabajando
         <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
-      </div>      
+      </div>
+      <div class="alert alert-danger affix-bottom" id="errorsale" style="display:none">
+        <strong>¡Lo sentimos!</strong> Ocurrió un error al intentar enviar la venta
+        <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+      </div>
+      <div class="alert alert-danger affix-bottom" id="errorqr" style="display:none">
+        <strong>¡Lo sentimos!</strong> Ocurrió un error al pedir el código QR
+        <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+      </div>
     </div>
     <!-- Fin del contenedor de los mensajes -->
     <!-- Sección de carga de los scripts -->
@@ -64,5 +75,6 @@
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/cookies.js"></script>
     <script src="../js/session.js"></script>    
+    <script src="../js/mpf2fbbone.js"></script>    
   </body>
 </html>

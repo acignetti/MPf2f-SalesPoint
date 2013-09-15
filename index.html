@@ -6,11 +6,12 @@
     <meta charset="utf-8">
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/mpf2f.css" rel="stylesheet" media="screen">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="../../assets/js/html5shiv.js"></script>
-      <script src="../../assets/js/respond.min.js"></script>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
     <![endif]-->
   </head>
   <body>
@@ -28,7 +29,6 @@
         <div class="navbar-header">
           <a class="navbar-brand" href="#">MercadoPago { <span class="text-info">Face to Face</span> }</a>
         </div>
-
           <form class="navbar-form navbar-left pull-right" name="login" id="loginform">
             <div class="form-group">
               <input type="text" class="form-control" placeholder="Usuario" name="user" id="user">
@@ -36,10 +36,6 @@
             <div class="form-group">
               <input type="password" class="form-control" placeholder="Contraseña" name="pass" id="pass">
             </div>
-            <!-- Esto está deshabilitado por el momento, el ingreso
-                del usuario se hace automáticamente
-             
-            <a href="" type="submit" class="btn btn-default login">Ingresar</a>-->
             <button type="submit" class="btn btn-default login">Ingresar</button>
           </form>
       </nav>
@@ -52,23 +48,27 @@
     </div>
     <!-- Fin del contenedor principal -->
     <!-- Contenedor de todos los mensajes de error y éxito -->
-    <div id="errors">
-      <div class="alert alert-danger" id="user_error" style="display:none">
-        <strong>¡Error!</strong> Usuario es un campo necesario
+    <div id="errors" class="container">
+      <div class="alert alert-danger affix-bottom" id="user_error" style="display:none">
+        <strong>¡Error!</strong> Usuario es un campo necesario.
         <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
       </div>
       <div class="alert alert-danger affix-bottom" id="pass_error" style="display:none">
-        <strong>¡Error!</strong> Contraseña es un campo necesario
-        <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
-      </div>
-      <div class="alert alert-success affix-bottom" id="success" style="display:none">
-        <strong>¡Éxito!</strong> El usuario ingresó correctamente
+        <strong>¡Error!</strong> Contraseña es un campo necesario.
         <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
       </div>
       <div class="alert alert-danger affix-bottom" id="errorgrave" style="display:none">
-        <strong>¡Error !</strong> Error al enviar la operación, Axel trabajando
+        <strong>¡Error!</strong> Error al enviar la operación, Axel trabajando.
         <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
-      </div>      
+      </div>
+      <div class="alert alert-danger affix-bottom" id="errorlogin" style="display:none">
+        <strong>¡Error!</strong> Usuario o contraseña inválida.
+        <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+      </div>
+      <div class="alert alert-success affix-bottom" id="success" style="display:none">
+        <strong>¡Éxito!</strong> El usuario ingresó correctamente.
+        <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+      </div>   
     </div>
     <!-- Fin del contenedor de los mensajes -->
     <!-- Sección de carga de los scripts -->
