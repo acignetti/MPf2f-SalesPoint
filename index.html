@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MPF2F - Integración de MercadoPago con las tiendas físicas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../assets/js/html5shiv.js"></script>
+      <script src="../../assets/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <noscript>
+      <div class="affix">
+        <div class="alert alert-danger noscript">
+          <strong>Oh, no tenés JavaScript activo :(</strong><br/>
+          Nuestro sitio necesita hacer uso de él para mostrarte una experiencia más agradable
+        </div>
+      </div>      
+    </noscript>
+    <!-- Este es el menú superior -->
+    <div id="login">
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">MercadoPago { <span class="text-info">Face to Face</span> }</a>
+        </div>
+
+          <form class="navbar-form navbar-left pull-right" name="login" id="loginform">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Usuario" name="user" id="user">
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" placeholder="Contraseña" name="pass" id="pass">
+            </div>
+            <!-- Esto está deshabilitado por el momento, el ingreso
+                del usuario se hace automáticamente
+             
+            <a href="" type="submit" class="btn btn-default login">Ingresar</a>-->
+            <button type="submit" class="btn btn-default login">Ingresar</button>
+          </form>
+      </nav>
+    </div>
+    <!-- Fin del menú superior -->
+    <!-- Contenedor principal, acá cargamos todo lo que el -->
+    <!-- usuario nos solicite -->
+    <div class="container" id="actions">
+
+    </div>
+    <!-- Fin del contenedor principal -->
+    <!-- Contenedor de todos los mensajes de error y éxito -->
+    <div id="errors">
+      <div class="alert alert-danger" id="user_error" style="display:none">
+        <strong>¡Error!</strong> Usuario es un campo necesario
+        <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+      </div>
+      <div class="alert alert-danger affix-bottom" id="pass_error" style="display:none">
+        <strong>¡Error!</strong> Contraseña es un campo necesario
+        <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+      </div>
+      <div class="alert alert-success affix-bottom" id="success" style="display:none">
+        <strong>¡Éxito!</strong> El usuario ingresó correctamente
+        <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+      </div>
+      <div class="alert alert-danger affix-bottom" id="errorgrave" style="display:none">
+        <strong>¡Error !</strong> Error al enviar la operación, Axel trabajando
+        <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+      </div>      
+    </div>
+    <!-- Fin del contenedor de los mensajes -->
+    <!-- Sección de carga de los scripts -->
+    <script src="js/jquery2-0-3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/cookies.js"></script>
+    <script src="js/login.js"></script>
+  </body>
+</html>
